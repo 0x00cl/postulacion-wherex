@@ -17,6 +17,9 @@ Activar ambiente virtual de Python
 
 ```
 $ python -m venv venv
+
+$ source ./venv/bin/activate # Linux
+$ ./venv/bin/Activate.ps1    # Windows
 ```
 
 Una vez activado el ambiente virtual, instalar dependencias y ejecutar flask.
@@ -28,7 +31,7 @@ $ export FLASK_DEBUG=1
 $ flask run
 ```
 
-La aplicación deberia quedar disponible en http://localhost:5000/metrics
+La aplicación queda disponible en http://localhost:5000/metrics
 
 
 ### Docker/Podman
