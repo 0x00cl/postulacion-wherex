@@ -20,6 +20,7 @@ import psutil
 
 app = Flask(__name__)
 
+
 @app.route("/metrics")
 def metrics():
     return {
@@ -30,6 +31,6 @@ def metrics():
         },
         "memory": {
             "virtual_mem": psutil.virtual_memory()._asdict(),
-            "swap_mem": psutil.swap_memory()._asdict()
-            }
-        }
+            "swap_mem": psutil.swap_memory()._asdict(),
+        },
+    }
