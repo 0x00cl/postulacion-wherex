@@ -7,11 +7,38 @@ on:
     branches: [ "main" ]
 
 jobs:
-
-  build:
-
+  lint:
     runs-on: ubuntu-latest
-
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        architecture: 'x64'
+        cache: 'pip'
+    - name: Install ruff
+      run: pip install -r requirements-dev.txt
+    - name: Lint with ruff
+      run: ruff check --output-format=github .
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.12'
+        architecture: 'x64'
+        cache: 'pip'
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    - name: Install pytest
+      run: pip install -r requirements-dev.txt
+    - name: Run tests
+      run: pytest -p no:warnings tests
+  build:
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
