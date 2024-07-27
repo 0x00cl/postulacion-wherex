@@ -13,4 +13,4 @@ if ! command -v docker &> /dev/null; then
 fi
 
 $container_mgmt build -t wherex/metrics .
-$container_mgmt run --restart always -d -p 8000:8000 -e -e GUNICORN_CMD_ARGS="--workers=2" wherex/metrics
+$container_mgmt run --restart always -d -p 8000:8000 -e GUNICORN_CMD_ARGS="--workers=2" wherex/metrics
