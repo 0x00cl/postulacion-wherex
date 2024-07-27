@@ -41,6 +41,19 @@ $ ./deploy.sh
 
 Se construye una imagen llamada `wherex/metrics:latest` y queda corriendo como contenedor, quedando disponible en http://localhost:8000/metrics
 
+## Ejecucion pruebas
+
+Para ejecutar las pruebas que están en el directorio `tests` es necesario instalar [pytest](https://docs.pytest.org/en/8.3.x/)
+
+```
+$ pip install -r requirements-dev.txt
+```
+
+Y para ejecutar las pruebas 
+```
+$ pytest -p no:warnings tests
+```
+
 ## Configuración
 
 ### Gunicorn (Despliegue para producción)
